@@ -1,0 +1,8 @@
+{
+    "query" : "CREATE (n:User { id : {id} }) RETURN n",
+    "params" : {
+        "id": 1337
+    }
+}
+
+

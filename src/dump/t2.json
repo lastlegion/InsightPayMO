@@ -1,0 +1,7 @@
+{
+      "statements" : [ {
+              "statement" : "MERGE (n:User {id:90, money:100}) RETURN n"
+                } ]
+}
+
+

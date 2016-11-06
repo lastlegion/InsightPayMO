@@ -1,0 +1,7 @@
+{
+      "statements" : [ {
+              "statement" : "CREATE (n) RETURN id(n)"
+                } ]
+}
+
+

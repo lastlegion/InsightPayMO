@@ -8,6 +8,9 @@ var bodyParser = require('body-parser');
 var routes = require('./routes/index');
 var users = require('./routes/users');
 
+var csv = require("fast-csv");
+var fs = require("fs");
+
 var app = express();
 
 // view engine setup
@@ -45,7 +48,7 @@ if (app.get('env') === 'development') {
     });
   });
 }
-
+  
 // production error handler
 // no stacktraces leaked to user
 app.use(function(err, req, res, next) {
