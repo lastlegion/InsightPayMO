@@ -1,7 +1,7 @@
 var csv = require("fast-csv");
 var fs = require("fs");
 //var csv = require("csv");
-var d3 = require("d3");
+//var d3 = require("d3");
 
 var request = require("superagent");
 
