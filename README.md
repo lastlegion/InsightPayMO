@@ -3,6 +3,7 @@ I've used Neo4J Graph databse as my backend datastore. I've used Node.js to proc
 
 * Install Node.js
 * Install Neo4j 
+* `cd src && sudo npm install`
 
 ## Configuring Neo4j
 
