@@ -1,34 +1,20 @@
-# Installation
+## Installation
 I've used Neo4J Graph databse as my backend datastore. I've used Node.js to process the data
 
 * Install Node.js
 * Install Neo4j 
 
+## Configuring Neo4j
 
-## Batch Loading in Neo4J
+### Setting up authentication
+We use username:`neo4j` and password:`admin` as the default configuration.
+Set it up using
 
-Loading the batch file
-Replace `<file_location>` with the file location of batch_payment.csv
+`curl -H "Content-Type: application/json" -X POST -d '{"password":"admin"}' -u neo4j:neo4j http://localhost:7474/user/neo4j/password`
+
+If you were to use other username/password please update the `src/config.json` file
 
 
-
-	
-	CREATE CONSTRAINT on (c:User) ASSERT c.id IS UNIQUE;
-
-	USING PERIODIC COMMIT
-	
-	// Create nodes
-	LOAD CSV WITH HEADERS FROM
-	'<file_location>' AS line
-	MERGE (u1:User {id: line.id1 })
-	MERGE (u2:User {id: line.id2 })
-	
-	// Create relations
-	USING PERIODIC COMMIT 1000
-	LOAD CSV WITH HEADERS FROM "<file_location>" AS line
-	MATCH (u1:User {id: line.id1 })
-	MATCH (u2:User {id: line.id2 })
-	MERGE (u1)-[r:PAID]->(u2)
-	SET r.amount = line.amount
-	
+### Performance tweaking Neo4j
+Use the configuration files in `src/neo4j_conf` for your neo4j setup.
 
