@@ -3,7 +3,7 @@
 # execute batch loading of batch_payment.txt into Neo4J
 # Please provide absolute path for `f`
 tput setaf 1; echo "Step1: Loading Data, Creating Neo4J Graph"; tput sgr0;
-{ echo "export f=file:///home/ubuntu/InsightPayMO/paymo_input/batch_payment.csv"; cat src/batchCreate.cql; } | neo4j-shell
+{ echo "export f=file:///home/ubuntu/InsightPayMO/paymo_input/batch_head.csv"; cat src/batchCreate.cql; } | neo4j-shell
 
 
 #Please note all paths are relative to src directory
