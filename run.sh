@@ -1,7 +1,28 @@
 #!/usr/bin/env bash
 
-# example of the run script for running the fraud detection algorithm with a python file,
-# but could be replaced with similar files from any major language
+# execute batch loading of batch_payment.txt into Neo4J
+# Please provide absolute path for `f`
+tput setaf 1; echo "Step1: Loading Data, Creating Neo4J Graph"; tput sgr0;
+{ echo "export f=file:///home/ubuntu/InsightPayMO/paymo_input/batch_payment.csv"; cat src/batchCreate.cql; } | neo4j-shell
 
-# I'll execute my programs, with the input directory paymo_input and output the files in the directory paymo_output
-python ./src/antifraud.py ./paymo_input/batch_payment.txt ./paymo_input/stream_payment.txt ./paymo_output/output1.txt ./paymo_output/output2.txt ./paymo_output/output3.txt
+
+#Please note all paths are relative to src directory
+cd src
+
+echo ""; tput setaf 1; echo "Step2: Executing feature 1"; tput sgr0;
+
+# execute feature 1
+node feature1_.js ../paymo_input/stream_head.csv ../paymo_output/output1.txt
+
+
+echo ""; tput setaf 1; echo "Step3: Executing feature 2"; tput sgr0;
+
+# execute feature 2
+node feature2_.js ../paymo_input/stream_head.csv ../paymo_output/output2.txt
+
+
+echo""; tput setaf 1; echo "Step4: Executing feature 3"; tput sgr0;
+
+# exectue feature 3
+node feature3_.js ../paymo_input/stream_head.csv ../paymo_output/output3.txt
+
