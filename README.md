@@ -1,4 +1,9 @@
-# Usage
+# Installation
+I've used Neo4J Graph databse as my backend datastore. I've used Node.js to process the data
+
+* Install Node.js
+* Install Neo4j 
+
 
 ## Batch Loading in Neo4J
 
