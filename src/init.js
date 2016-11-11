@@ -13,13 +13,15 @@ if(typeof(String.prototype.trim) === "undefined")
     };
 }
   
-var db_host = "http://localhost:7474";
+var db_host = "http://localhost:747i";
 var db_user = "neo4j";
 var db_pass = "admin";
 
 function batchInit() {
   console.log("iniitalizing");
-  var stream = fs.createReadStream("../paymo_input/batch_payment.csv");
+  console.log(process.argv)
+  var batch_file = process.argv[2];
+  var stream = fs.createReadStream(batch_file);
   var payload = [];
 
 
@@ -106,8 +108,14 @@ function batchInit() {
    
   stream.pipe(csvStream);
 }
+
+if(process.argv.length != 3){
+  console.log("Error: Usage node batchInit.js <filename>");
+
+} else {
 	
-batchInit();
+  batchInit();
+}
     /*
     console.log(user1);
 
