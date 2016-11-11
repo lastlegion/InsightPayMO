@@ -7,7 +7,7 @@ Replace `<file_location>` with the file location of batch_payment.csv
 
 
 
-	'''
+	
 	CREATE CONSTRAINT on (c:User) ASSERT c.id IS UNIQUE;
 
 	USING PERIODIC COMMIT
@@ -26,5 +26,4 @@ Replace `<file_location>` with the file location of batch_payment.csv
 	MERGE (u1)-[r:PAID]->(u2)
 	SET r.amount = line.amount
 	
-	'''
 
